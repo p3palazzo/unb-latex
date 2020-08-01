@@ -17,6 +17,11 @@ vpath default.% lib
 		-v "`pwd`/assets/fonts:/usr/share/fonts" \
 		pandoc/latex:2.10 -o $@ -d $^
 
+%.tex : pdf.yaml %.md | styles
+	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
+		-v "`pwd`/assets/fonts:/usr/share/fonts" \
+		pandoc/latex:2.10 -o $@ -d $^
+
 # {{{1 PHONY
 #      =====
 
