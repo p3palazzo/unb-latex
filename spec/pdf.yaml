@@ -1,0 +1,38 @@
+from            : markdown+raw_tex
+to              : latex
+standalone      : true
+file-scope      : true
+number-sections : true
+cite-method     : citeproc
+template        : "lib/default.latex"
+pdf-engine      : xelatex
+fail-if-warnings: true
+include-in-header:
+  - header.tex
+include-before-body:
+  - before.tex
+filters:
+  - pandoc-citeproc
+metadata:
+  csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
+  suppress-bibliography: false
+  bibliography-title: "Referências bibliográficas"
+  lang: pt-BR
+  documentclass: article
+  fontsize: 11pt
+  papersize: a4
+  indent: true
+  secnumdepth: 2
+  pagestyle: fancy
+  mainfont: "UnB Pro"
+  sansfont: "UnB Pro-Light"
+  mainfontoptions:
+    - Numbers=Proportional
+    - BoldFont       = UnBPro-Bold
+    - ItalicFont     = UnBPro-RegularItalic
+    - BoldItalicFont = UnBPro-BoldItalic
+  geometry:
+    - top=3cm
+    - right=2cm
+    - bottom=2.5cm
+    - left=3cm
