@@ -21,6 +21,6 @@ jobs:
           pandoc/latex:2.10
           -d spec/pdf.yaml -o artigo.pdf artigo-xref.md
       - uses: actions/upload-artifact@v2
-          with:
-            name: artigo
-            path: 'artigo.pdf'
+        with:
+          name: artigo
+          path: 'artigo.pdf'
