@@ -1,0 +1,26 @@
+name: PDF
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: >
+          git clone https://git@github.com/citation-style-language/styles.git
+      - uses: docker://pandoc/crossref:2.10
+        with:
+          args: >
+            -d spec/markdown.yaml -o artigo-xref.md artigo.md
+      - run: >
+          docker run -v "`pwd`:/data" --user "`id -u`:`id -g`"
+          -v "`pwd`/assets/fonts:/usr/share/fonts"
+          pandoc/latex:2.10
+          -d spec/pdf.yaml -o artigo.pdf artigo-xref.md
+      - uses: actions/upload-artifact@v2
+          with:
+            name: artigo
+            path: 'artigo.pdf'
