@@ -1,0 +1,14 @@
+from            : markdown+raw_tex
+to              : markdown+raw_tex
+standalone      : true
+file-scope      : true
+fail-if-warnings: true
+cite-method     : citeproc
+filters:
+  - pandoc-crossref
+  - pandoc-citeproc
+metadata:
+  csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
+  suppress-bibliography: false
+  bibliography-title: "Referências bibliográficas"
+  lang: pt-BR

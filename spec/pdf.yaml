@@ -3,7 +3,6 @@ to              : latex
 standalone      : true
 file-scope      : true
 number-sections : true
-cite-method     : citeproc
 template        : "lib/default.latex"
 pdf-engine      : xelatex
 fail-if-warnings: true
@@ -11,12 +10,7 @@ include-in-header:
   - header.tex
 include-before-body:
   - before.tex
-filters:
-  - pandoc-citeproc
 metadata:
-  csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
-  suppress-bibliography: false
-  bibliography-title: "Referências bibliográficas"
   lang: pt-BR
   documentclass: article
   fontsize: 11pt
