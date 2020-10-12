@@ -7,6 +7,7 @@ number-sections       : false
 shift-heading-level-by: 2
 cite-method           : citeproc
 filters:
+  - pandoc-crossref
   - pandoc-citeproc
 metadata:
   csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
