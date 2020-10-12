@@ -6,11 +6,25 @@ number-sections : true
 template        : "lib/default.latex"
 pdf-engine      : xelatex
 fail-if-warnings: true
-include-in-header:
-  - header.tex
-include-before-body:
-  - before.tex
+cite-method     : citeproc
+filters:
+  - pandoc-crossref
+  - pandoc-citeproc
+variables:
+  header-includes:
+    - \fancyhf{}
+    - \lhead{\XeTeXglyph \XeTeXglyphindex "ass_completa_CONT" \relax}
+    - \lfoot{\small{FAU/THAU/PP/2020}}
+    - \rfoot{\small{\thepage}}
+    - \renewcommand{\headrulewidth}{0.5pt}
+    - \renewcommand{\footrulewidth}{0.5pt}
+  include-before:
+    - \thispagestyle{empty}
 metadata:
+  csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
+  suppress-bibliography: false
+  bibliography-title: "Referências bibliográficas"
+  lang: pt
   documentclass: article
   fontsize: 11pt
   papersize: a4
