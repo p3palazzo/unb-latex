@@ -11,16 +11,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: >
           git clone https://git@github.com/citation-style-language/styles.git
-      - uses: docker://pandoc/crossref:2.10
-        with:
-          args: >
-            -d spec/markdown.yaml -o artigo-xref.md artigo.md
-      - uses: actions/upload-artifact@v2
-        with:
-          name: artigo
-          path: 'artigo-xref.md'
       - run: >
           docker run -v "`pwd`:/data" --user "`id -u`:`id -g`"
           -v "`pwd`/assets/fonts:/usr/share/fonts"
           pandoc/latex:2.10
-          -d spec/pdf.yaml -o artigo.pdf artigo-xref.md
+          -d spec/pdf.yaml -o artigo.pdf artigo.md
