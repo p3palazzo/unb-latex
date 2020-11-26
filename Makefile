@@ -6,21 +6,23 @@ vpath %.csl styles
 vpath %.html .:_includes:_layouts:_site
 vpath %.scss assets/css
 vpath %.xml _site
-vpath %.yaml .:spec
-vpath default.% lib
+vpath %.yaml .:_spec
+
+PANDOC/LATEX := docker run -u "`id -u`:`id -g`" \
+		-v "`pwd`:/data" -v "`pwd`/assets/fonts:/usr/share/fonts" \
+		pandoc/latex:2.11.2
 
 # {{{1 Produtos PDF
 #      ============
 
+artigo.pdf : pdf.yaml artigo.md | styles
+	$(PANDOC/LATEX) -o $@ -d $^
+
 %.pdf : pdf.yaml %.md | styles
-	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
-		-v "`pwd`/assets/fonts:/usr/share/fonts" \
-		pandoc/latex:2.10 -o $@ -d $^
+	$(PANDOC/LATEX) -o $@ -d $^
 
 %.tex : pdf.yaml %.md | styles
-	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
-		-v "`pwd`/assets/fonts:/usr/share/fonts" \
-		pandoc/latex:2.10 -o $@ -d $^
+	$(PANDOC/LATEX) -o $@ -d $^
 
 # {{{1 PHONY
 #      =====
