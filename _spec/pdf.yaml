@@ -33,7 +33,9 @@ variables:
     - \usepackage[overload]{textcase}
     - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
   include-before:
-    - \thispagestyle{empty}
+    - \thispagestyle{fancy}
+    - \let\oldsc\textsc
+    - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
   indent: true
   mainfont: "UnB Pro"
   sansfont: "UnB Pro-Light"
