@@ -26,6 +26,12 @@ variables:
     - \rfoot{\small{\thepage}}
     - \renewcommand{\headrulewidth}{0.5pt}
     - \renewcommand{\footrulewidth}{0.5pt}
+    - \usepackage{academicons}
+    - \usepackage{multicol}
+    - \setlength{\columnsep}{15pt}
+    - \usepackage{csquotes}
+    - \usepackage[overload]{textcase}
+    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
   include-before:
     - \thispagestyle{empty}
   indent: true
