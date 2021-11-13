@@ -23,7 +23,7 @@ variables:
     - \pagestyle{fancy}
     - \fancyhf{}
     - \lhead{\XeTeXglyph \XeTeXglyphindex "ass_completa_CONT" \relax}
-    - \lfoot{\small{FAU/THAU/PP/2020}}
+    - \lfoot{\small{FAU/THAU/PP/2021}}
     - \rfoot{\small{\thepage}}
     - \renewcommand{\headrulewidth}{0.5pt}
     - \renewcommand{\footrulewidth}{0.5pt}
