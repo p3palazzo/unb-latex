@@ -1,6 +1,7 @@
 from            : markdown+raw_tex
 to              : latex
 standalone      : true
+data-dir        : "_lib"
 file-scope      : true
 number-sections : true
 pdf-engine      : xelatex
